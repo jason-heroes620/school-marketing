@@ -612,7 +612,7 @@ class SchoolResultsController extends Controller
         ResultsFromWeb::updateOrcreate(
             ['school_result_id' => $school_result_id],
             [
-                'results' => json_encode($data),
+                'results' => ($data),
             ]
         );
 
