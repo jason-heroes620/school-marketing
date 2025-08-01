@@ -1,0 +1,832 @@
+[
+    {
+        "id": "ChIJz2spOe_HzjERqaI0GyeX1ak",
+        "formattedAddress": "Signature Shop Office,, Pusat Perdagangan Bandar Bukit Jalil, K1-1M, K1-2 & K1-3, Persiaran Jalil 2, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0536073,
+            "longitude": 101.6712347
+        },
+        "rating": 4.8,
+        "userRatingCount": 45,
+        "displayName": {
+            "text": "Krecious House @ Bukit Jalil City - Child Care, Preschool & Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJRY-3XPbMa6gRiFi7dgPsd-M",
+        "formattedAddress": "18-1, 18-2, 18, 3, Jalan Jalil Jaya 2, Jalil Link, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0582336999999997,
+            "longitude": 101.6737849
+        },
+        "rating": 4.8,
+        "userRatingCount": 16,
+        "displayName": {
+            "text": "Sri Kenanga Preschool Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJZXZavOZKzDERoVqDpEVw-90",
+        "formattedAddress": "No.1, Block A, Tadika Lai Meng, Jln 15/155C, Bandar Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0574651999999998,
+            "longitude": 101.668127
+        },
+        "rating": 3.4,
+        "userRatingCount": 10,
+        "displayName": {
+            "text": "Tadika Lai Meng 黎明幼儿园 Lai Meng Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJtVQvN5VLzDER-1-Q6xTUra0",
+        "formattedAddress": "2-20 & 2-21, Residensi Park Bukit Jalil, Persiaran Jalil Utama, Bandar Bukit Jalil, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0524304,
+            "longitude": 101.6728729
+        },
+        "rating": 5,
+        "userRatingCount": 6,
+        "displayName": {
+            "text": "Luminary Preschool - Best Preschool in Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJIfnZduRKzDERNTZX0zJB3WE",
+        "formattedAddress": "44A, Jalan 17/155c, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0601572999999997,
+            "longitude": 101.6674922
+        },
+        "rating": 5,
+        "userRatingCount": 3,
+        "displayName": {
+            "text": "Krista Kindergarten Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJtUPrRuFLzDER9llOSERYNNc",
+        "formattedAddress": "D-01-08, Plaza Bukit Jalil (Aurora Plaza, 1, Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0539897999999996,
+            "longitude": 101.669947
+        },
+        "rating": 4.2,
+        "userRatingCount": 44,
+        "displayName": {
+            "text": "R.E.A.L Kids, Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJT72m-npLzDERy6Y9qo5-LLg",
+        "formattedAddress": "8 & 10, Jalan 17/155c, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0608760000000004,
+            "longitude": 101.6689198
+        },
+        "rating": 5,
+        "userRatingCount": 21,
+        "displayName": {
+            "text": "Knowledge Tree Montessori Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ-c9o5GVLzDER5Le4PA0H3d0",
+        "formattedAddress": "J-11-3 Pusat Bandar, Jalan Jalil Utama 2, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0530684999999997,
+            "longitude": 101.6710569
+        },
+        "rating": 4,
+        "userRatingCount": 12,
+        "displayName": {
+            "text": "Kindyland Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJXwM56ulLzDERxCj8KRViV7k",
+        "formattedAddress": "C-07-2, Pusat Perdagangan Bandar Bukit Jalil Persiaran Jalil 7 Pusat Perdagangan Bandar, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0523604,
+            "longitude": 101.67067019999999
+        },
+        "rating": 5,
+        "userRatingCount": 16,
+        "displayName": {
+            "text": "Vista Kinderworld 2 - Pre-school, Child Care Center",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJLTHH6alLzDERjiHLiIeM8M0",
+        "formattedAddress": "12A, Jln Jalil 1, The Earth @ Bukit Jalil, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0485472,
+            "longitude": 101.6712869
+        },
+        "rating": 5,
+        "userRatingCount": 29,
+        "displayName": {
+            "text": "Little Creche The Earth Bukit Jalil Preschool and Childcare Centre",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJfR19WHxLzDERoIN_pyW5vd8",
+        "formattedAddress": "E-5-2, Pusat Perdagangan, 2, Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.052834,
+            "longitude": 101.67091699999999
+        },
+        "rating": 4.2,
+        "userRatingCount": 5,
+        "displayName": {
+            "text": "KinderJoy Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ4xdXaQhLzDEREiOKoEPCbh0",
+        "formattedAddress": "H-13-02, Pusat Perdagangan Bandar, Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0522525999999996,
+            "longitude": 101.67150529999999
+        },
+        "rating": 4.3,
+        "userRatingCount": 24,
+        "displayName": {
+            "text": "Joyous Childcare & Preschool (Bukit Jalil, Kuala Lumpur)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ8TMBiGFLzDERriznai7aB1E",
+        "formattedAddress": "No. 3, Residensi Park, Persiaran Jalil Utama, Bukit Jalil, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0539463,
+            "longitude": 101.6718903
+        },
+        "rating": 5,
+        "userRatingCount": 22,
+        "displayName": {
+            "text": "Little Creche The Park Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ1WTgrhJLzDERk8Muj7uwUNQ",
+        "formattedAddress": "K3A-1 & K3A-M, Signature Shop Office, Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0534282999999998,
+            "longitude": 101.67093349999999
+        },
+        "rating": 4.6,
+        "userRatingCount": 31,
+        "displayName": {
+            "text": "The children's house Montessori Bukit Jalil City",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJBzGzyOJLzDERbecRUmbcwZw",
+        "formattedAddress": "Residensi Park Bukit Jalil, Persiaran Jalil Utama, Bandar Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0538045,
+            "longitude": 101.67186149999999
+        },
+        "rating": 4.2,
+        "userRatingCount": 39,
+        "displayName": {
+            "text": "Al Kauthar Eduqids Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJRfNQw-5KzDERG74BqBIbra8",
+        "formattedAddress": "H-2-1, Signature Shop Office, Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.051506,
+            "longitude": 101.671882
+        },
+        "rating": 3.5,
+        "userRatingCount": 6,
+        "displayName": {
+            "text": "Small Wonder Preschool Bukit Jalil City",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJoydK2QlLzDERooeWcpNaNBI",
+        "formattedAddress": "48-G, 48-1, Jalan Jalil 1, Bumi, Lebuhraya Bukit Jalil, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0495281,
+            "longitude": 101.67014789999999
+        },
+        "rating": 4.7,
+        "userRatingCount": 13,
+        "displayName": {
+            "text": "Cherie Hearts International Preschool Bukit Jalil (The Earth)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJD01-PppLzDERwlfcrb-raW4",
+        "formattedAddress": "J-2-1, J-2-2 & J-2-3, Pusat Perdangangan Bandar, Persiaran Jalil 1, Bukit Jalil, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0528032,
+            "longitude": 101.6711522
+        },
+        "displayName": {
+            "text": "Tadika Suria Sempurna",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJAVSPR8JLzDERg7LMeNhaYEA",
+        "formattedAddress": "Block C, Sri Rakyat, Apartment, Jalan 14/155c, Bandar Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.055716,
+            "longitude": 101.66847810000002
+        },
+        "rating": 5,
+        "userRatingCount": 5,
+        "displayName": {
+            "text": "Tadika Islam Tahfiz Al-Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ8eyRbuRKzDERDvDO7iZ8Jnc",
+        "formattedAddress": "33A, Jalan 16/155c Bandar Bukit Jalil, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0600695,
+            "longitude": 101.6680604
+        },
+        "rating": 4.8,
+        "userRatingCount": 10,
+        "displayName": {
+            "text": "Smart Reader Kids Bandar Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJv3nA6vtKzDER2hNBNzhTyiA",
+        "formattedAddress": "52, Jalan Awan Cina, Taman Yarl, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.066993,
+            "longitude": 101.6684025
+        },
+        "rating": 4.3,
+        "userRatingCount": 120,
+        "displayName": {
+            "text": "Golden Montessori Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ4QUssctLzDER-fNyiiIcgZk",
+        "formattedAddress": "Level 8, Casa Green, Jalan Jalil Perwira 2, Bukit Jalil, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0644837999999996,
+            "longitude": 101.6641195
+        },
+        "rating": 4.4,
+        "userRatingCount": 19,
+        "displayName": {
+            "text": "Wonder Years Preschool Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJJ7AHqC5LzDERodNkmN_Q2Mw",
+        "formattedAddress": "Nursery Lot Club House A, Vista Komanwel A, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0604369,
+            "longitude": 101.68497239999999
+        },
+        "rating": 5,
+        "userRatingCount": 88,
+        "displayName": {
+            "text": "Vista Kinderworld - Pre-school, Child Care Center",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJSdNYxO5KzDERDY6E43bVABw",
+        "formattedAddress": "Malaysia, Wilayah Persekutuan Kuala Lumpur, Kuala Lumpur, Bukit Jalil, Jalan Jalil Perkasa 1, Institute Block, Level B1邮政编码: 57100",
+        "location": {
+            "latitude": 3.0507798999999998,
+            "longitude": 101.6805182
+        },
+        "rating": 3.8,
+        "userRatingCount": 4,
+        "displayName": {
+            "text": "Tadika Calvary",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ4fyTrI5KzDERTA9JpKzaaeo",
+        "formattedAddress": "2, Jalan 5/149b Taman Sri Endah, Bandar Baru Sri Petaling, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0643396,
+            "longitude": 101.6882168
+        },
+        "rating": 4.8,
+        "userRatingCount": 100,
+        "displayName": {
+            "text": "PowerKids Sri Petaling",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJWysTuOhKzDERzxMME1GyWZs",
+        "formattedAddress": "No 2A-1 Block, 1, Jalan Jalil Jaya, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0576396,
+            "longitude": 101.6740918
+        },
+        "displayName": {
+            "text": "Yes Kids Care Centre",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ-YCOgX9LzDERdPdnIRy_CAg",
+        "formattedAddress": "1-11-M, Jalan Jalil Perkasa 13, Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0615424,
+            "longitude": 101.6756546
+        },
+        "rating": 5,
+        "userRatingCount": 3,
+        "displayName": {
+            "text": "Brainy Bunch Montessori Playschool Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJb_rBB5FLzDERzvrLTLHUdag",
+        "formattedAddress": "47 & 49 (Ground Floor, 43, 45, Jalan Radin Anum 1, Bandar Baru Sri Petaling, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.067294,
+            "longitude": 101.69122870000001
+        },
+        "rating": 5,
+        "userRatingCount": 108,
+        "displayName": {
+            "text": "VIP Kindergarten, Preschool & Childcare @ Sri Petaling, Kuala Lumpur",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJw6W89PdKzDERhezPthpKLbg",
+        "formattedAddress": "118, Jalan Awan Kecil, Taman Yarl, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0689797,
+            "longitude": 101.6719737
+        },
+        "rating": 4.7,
+        "userRatingCount": 46,
+        "displayName": {
+            "text": "Fun Home Kindergarten OUG",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJxZZ0T-5KzDERGQL6zP-oZUA",
+        "formattedAddress": "10-3-M, Jalan Jalil Perkasa 15, Arked Esplanad, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0613558,
+            "longitude": 101.6767462
+        },
+        "displayName": {
+            "text": "Little Caliphs Bukit Jalil",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ06tiRexKzDER_hi5HGjhXOo",
+        "formattedAddress": "27, Jln Jalil Perkasa 18, Taman Esplanad, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0606198,
+            "longitude": 101.6783609
+        },
+        "rating": 3.7,
+        "userRatingCount": 3,
+        "displayName": {
+            "text": "Q-Dees Bukit Jalil Tadika Madu Ilmu",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ3Q48sjJLzDERJPFgh5_W8Ag",
+        "formattedAddress": "Jalan Tiara 7, Mutiara Bukit Jalil, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0592783,
+            "longitude": 101.6555401
+        },
+        "rating": 5,
+        "userRatingCount": 1,
+        "displayName": {
+            "text": "AwesomeKidsZone Childcare Bukit Jalil (Albaghdadi)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJOXWDnoS1zTERG4AK5sYoTjA",
+        "formattedAddress": "1, Jalan DU 3/1, Taman Damai Utama, 47180 Puchong, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0321776,
+            "longitude": 101.6685809
+        },
+        "rating": 5,
+        "userRatingCount": 6,
+        "displayName": {
+            "text": "Eduwis Damai Utama, Puchong",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJS21FqO5LzDER3TsnYJ3S8EA",
+        "formattedAddress": "11, Jalan Hujan Rahmat 1, Taman Overseas Union, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.07189,
+            "longitude": 101.67327
+        },
+        "rating": 4.2,
+        "userRatingCount": 15,
+        "displayName": {
+            "text": "Eduwis Taman OUG 1",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJUYLA-2pLzDERHVtOgzLlDGA",
+        "formattedAddress": "2, Jalan Hujan Batu 3, Taman Overseas Union, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.070535,
+            "longitude": 101.675035
+        },
+        "rating": 5,
+        "userRatingCount": 3,
+        "displayName": {
+            "text": "Green Apple Fun Land Kindergarten OUG",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJJ450AldLzDER_Zllol746D8",
+        "formattedAddress": "Jalan BK 9/5j, Bandar Kinrara 9, 47180 Puchong, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0545296,
+            "longitude": 101.6582531
+        },
+        "rating": 5,
+        "userRatingCount": 1,
+        "displayName": {
+            "text": "UPro Kindergarten - Tadika Unik Progresif",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ98DONv1LzDER6HkoCUVJT8E",
+        "formattedAddress": "19, Jalan 2/149b, Taman Sri Endah, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0632421,
+            "longitude": 101.6932563
+        },
+        "rating": 5,
+        "userRatingCount": 24,
+        "displayName": {
+            "text": "Fun Home Kindergarten Sri Petaling",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJsRvnQeRKzDERxrJ-nYfjg7I",
+        "formattedAddress": "No. 45, Ground Floor, Jalan 16/155c, Taman Bukit Jalil, 57000 Kuala Lumpur, Wilayah Persekutuan, Malaysia",
+        "location": {
+            "latitude": 3.0602548,
+            "longitude": 101.6682812
+        },
+        "displayName": {
+            "text": "Pusat Perkembangan Minda Sinar",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJo8m7gDBLzDER6x7ih8dLqC4",
+        "formattedAddress": "No 1 & 3, Jalan BK 5/8a, Bandar Kinrara, 47180 Puchong, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0434883,
+            "longitude": 101.64804389999999
+        },
+        "rating": 4.9,
+        "userRatingCount": 27,
+        "displayName": {
+            "text": "Tadika Bunga Tulip (Tulip Kindergarten)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJBRHCsDS1zTERDc3aZvAHSeM",
+        "formattedAddress": "43, Jalan PUJ 7/16, Taman Puncak Jalil, 43300 Seri Kembangan, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0318386,
+            "longitude": 101.6785417
+        },
+        "displayName": {
+            "text": "Little Minds Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJTxTHillKzDER7bopaWoGX4M",
+        "formattedAddress": "21, Lorong Hujan Emas 3, Taman Overseas Union, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0780608,
+            "longitude": 101.6741926
+        },
+        "rating": 4.5,
+        "userRatingCount": 8,
+        "displayName": {
+            "text": "UC Kindies OUG",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJwW_NM0dKzDERzDgjpXsWQII",
+        "formattedAddress": "19-1 2nd Floor, Jalan 1a/114, Kuchai Business Centre, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0916734,
+            "longitude": 101.6752715
+        },
+        "rating": 4.8,
+        "userRatingCount": 39,
+        "displayName": {
+            "text": "KINGSBEE PRESCHOOL KUCHAI LAMA",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJzwix7rtLzDER-KFCJo1bC4c",
+        "formattedAddress": "6, Jln Othman, Section 1, 46000 Petaling Jaya, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0868170999999998,
+            "longitude": 101.65266559999999
+        },
+        "rating": 4.8,
+        "userRatingCount": 55,
+        "displayName": {
+            "text": "Madeleine Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJrc4HtnZLzDERI868NBKniKI",
+        "formattedAddress": "No B 17, 1, Jalan BK 5A/2D, Bandar Kinrara, 47180 Puchong, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0477822,
+            "longitude": 101.6456778
+        },
+        "rating": 5,
+        "userRatingCount": 23,
+        "displayName": {
+            "text": "UPro Wonderland Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJFQkmQ2NLzDER8_iBdidnluw",
+        "formattedAddress": "54, Lorong Nikmat 2, Taman Serangkai, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0772716000000004,
+            "longitude": 101.6836747
+        },
+        "rating": 5,
+        "userRatingCount": 24,
+        "displayName": {
+            "text": "Fun Home Kindergarten Gembira",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJMXG-FVpKzDER0ipuFYxP-UA",
+        "formattedAddress": "39, Jalan Hujan Emas, Taman Overseas Union, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0773154,
+            "longitude": 101.6753985
+        },
+        "rating": 3.7,
+        "userRatingCount": 11,
+        "displayName": {
+            "text": "The children's house Montessori OUG (Formerly Taska OUG)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJqdFOH1hKzDERoMigXzB8QmY",
+        "formattedAddress": "Overseas Union Garden, 5, Jalan Hujan Emas 7, Taman Overseas Union, 58200 Kuala Lumpur, WP Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.073848,
+            "longitude": 101.675134
+        },
+        "rating": 4.5,
+        "userRatingCount": 4,
+        "displayName": {
+            "text": "Summer Tots (Tadika Mestika)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJG8w41jtLzDEReEh3S7C2_ds",
+        "formattedAddress": "9, Jalan BK 5b/3, Bandar Kinrara 5, 47180 Puchong, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.037496,
+            "longitude": 101.6381566
+        },
+        "rating": 4.9,
+        "userRatingCount": 52,
+        "displayName": {
+            "text": "SuperFun Learners Sdn. Bhd.",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ_ynjZkhLzDERfUwaeBMC5Cg",
+        "formattedAddress": "No. 36, Jalan Tbk 1/3, Taman Bukit Kinrara, 47100 Puchong, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0429147,
+            "longitude": 101.6361756
+        },
+        "rating": 5,
+        "userRatingCount": 2,
+        "displayName": {
+            "text": "Little Bamboo Kindergarten",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ86RFJs1LzDERQ-LaG7Q9HY0",
+        "formattedAddress": "52, Jalan Awan Kecil, Taman Overseas Union, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0746306,
+            "longitude": 101.6701348
+        },
+        "rating": 5,
+        "userRatingCount": 1,
+        "displayName": {
+            "text": "YGLR Tadika Suria Li Ren 阳光立人教育学园（HQ 总部）",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJYwMWAXjLzTERah7nW-jPjTg",
+        "formattedAddress": "No 7 (1st Floor, Jalan BS 10/7, Taman Bukit Serdang, 43300 Seri Kembangan, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0389022999999997,
+            "longitude": 101.69715819999999
+        },
+        "rating": 5,
+        "userRatingCount": 2,
+        "displayName": {
+            "text": "San Lorenzo Montessori Preschool Serdang | Kindergarten | Taska | Tadika |幼儿园",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJR2Ul4lBKzDERI3aqAgR4gBQ",
+        "formattedAddress": "2, Jalan Awan Sari, Taman Yarl, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0796517000000003,
+            "longitude": 101.669857
+        },
+        "rating": 4.9,
+        "userRatingCount": 37,
+        "displayName": {
+            "text": "The Star Children House (OUG)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJH1flAq9LzDERkXlZpP9NhPY",
+        "formattedAddress": "49 Jalan Wan Malini Taman Seri Endah, Bandar Baru Sri Petaling, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0662868,
+            "longitude": 101.7002078
+        },
+        "rating": 4.5,
+        "userRatingCount": 8,
+        "displayName": {
+            "text": "YGLR Pusat Jagaan Cahaya Li Ren",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJq6qq6pNKzDERuviVMIwMqTU",
+        "formattedAddress": "Nursery lot, Vista Komanwel B, Bukit Jalil, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0597223,
+            "longitude": 101.68632730000002
+        },
+        "rating": 4,
+        "userRatingCount": 4,
+        "displayName": {
+            "text": "Taska Mama Kids",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJ7cv7UGNKzDERaTBHvSJLQTw",
+        "formattedAddress": "2, Jalan Cahaya 3, Taman Salak Selatan, 57100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0774119,
+            "longitude": 101.69503750000001
+        },
+        "rating": 5,
+        "userRatingCount": 2,
+        "displayName": {
+            "text": "Tadika Yan Ooi - Kindergarten and Day Care @ Sri Petaling",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJx_DEZkRKzDERZ-n3R3AxR0g",
+        "formattedAddress": "No. 7, Jalan 13, Off, Old Klang Rd, Taman United, 58200 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0854144999999997,
+            "longitude": 101.67712829999999
+        },
+        "rating": 4,
+        "userRatingCount": 8,
+        "displayName": {
+            "text": "Tadika Bethany Montessori",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJPfVz4mi1zTERV00QU6p4fYM",
+        "formattedAddress": "2, Jalan Indah 1/10, Taman Universiti Indah, 43300 Seri Kembangan, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0104045,
+            "longitude": 101.69242849999999
+        },
+        "rating": 5,
+        "userRatingCount": 1,
+        "displayName": {
+            "text": "Little Lamb Kindergarten, Seri Kembangan",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJv24KNOVLzDERChuidygLZ6k",
+        "formattedAddress": "Kuchai Avenue KA1-2-7, 39, Jalan Kuchai Maju 13, Kuchai Entrepreneurs Park, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.0865919,
+            "longitude": 101.6917991
+        },
+        "rating": 4,
+        "userRatingCount": 8,
+        "displayName": {
+            "text": "Twinkle Star Kindergarten & Day Care (TS-14)",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJdxgiio01zDERrnylPEpcI0U",
+        "formattedAddress": "23, Jalan Budiman 7, Bandar Tun Razak, 56000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia",
+        "location": {
+            "latitude": 3.088771,
+            "longitude": 101.71814979999999
+        },
+        "rating": 4.8,
+        "userRatingCount": 66,
+        "displayName": {
+            "text": "Little Caliphs Islamic Kindergarten Bandar Tun Razak",
+            "languageCode": "en"
+        }
+    },
+    {
+        "id": "ChIJTZgqSFS1zTERlTPzi8JALKE",
+        "formattedAddress": "924, Jalan SK 5/7, Kampung Baru Seri Kembangan, 43300 Seri Kembangan, Selangor, Malaysia",
+        "location": {
+            "latitude": 3.0295988,
+            "longitude": 101.70393999999999
+        },
+        "rating": 5,
+        "userRatingCount": 3,
+        "displayName": {
+            "text": "Dragonfly Kindergarten 红蜻蜓幼儿园",
+            "languageCode": "en"
+        }
+    }
+]
