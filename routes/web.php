@@ -18,7 +18,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::patch('getHere', [SchoolResultsController::class, 'getHere']);
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:clear');
+    return "All cache cleared";
+});
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
