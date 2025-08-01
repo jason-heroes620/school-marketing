@@ -18,12 +18,6 @@ class ReportController extends Controller
         $user = Auth::id();
         $account_id = SchoolAccounts::where('user_id', $user)->first();
 
-
-
-
-        $type = [];
-
-
         $types = SchoolResults::select([DB::raw('count(type_of_school) as value'), 'type_of_school as name'])
             ->leftJoin('type_of_school', 'school_results.school_result_id', 'type_of_school.school_result_id')
             ->where('school_result_status', 'C')
