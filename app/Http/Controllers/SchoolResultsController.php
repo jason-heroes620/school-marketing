@@ -587,10 +587,10 @@ class SchoolResultsController extends Controller
         }
     }
 
-    public function scrapeSchoolData($name, $placeId, $school_result_id)
+    public function scrapeSchoolData()
     {
-        // $name = "Little Creche The Earth Bukit Jalil Preschool and Childcare Centre";
-        // $placeId = "ChIJLTHH6alLzDERjiHLiIeM8M0";
+        $name = "Little Caliphs Islamic Kindergarten & Playschool Bandar Sri Permaisuri";
+        $placeId = "ChIJjaFkuPA1zDERYy8RXc3zQEo";
 
         $googleApiKey = config('custom.google_key');
         $placeResponse = Http::get("https://maps.googleapis.com/maps/api/place/details/json", [
@@ -609,12 +609,12 @@ class SchoolResultsController extends Controller
         $data = $this->geminiService->extractSchoolDetails($name, $website);
 
         //$this->updateDatabase($data, $school_result_id);
-        ResultsFromWeb::updateOrcreate(
-            ['school_result_id' => $school_result_id],
-            [
-                'results' => ($data),
-            ]
-        );
+        // ResultsFromWeb::updateOrcreate(
+        //     ['school_result_id' => $school_result_id],
+        //     [
+        //         'results' => ($data),
+        //     ]
+        // );
 
         Log::info($data);
     }

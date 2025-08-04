@@ -30,20 +30,8 @@ class GeminiService
 
         // 3. Prompt
         $prompt = <<<EOT
-From the following context about "{$schoolName}", extract this information strictly as a valid JSON object:
-{
-  "no_of_students": [""],
-  "type_of_school": [""],
-  "education_philosophy": [""],
-  "curriculum_models": [""],
-  "facilities": [""],
-  "age_groups": [""],
-  "teacher_student_ratio": [""],
-  "fees": [""],
-  "theme": "",
-  "other_information": ""
-}
-Leave fields empty if not found.
+        i am doing a research called "{$schoolName}",, I will like to find out about their rates, their opening and closing times and other details
+
 Do not include any explanation or commentary — output only valid JSON.
 
 Content:
@@ -110,7 +98,7 @@ EOT;
             'cx' => $searchEngineId,
             // 'q' => "$schoolName site:.edu OR site:.org OR site:.my OR site:.com",
             'q' => "$schoolName",
-            'num' => 3,
+            'num' => 8,
         ])->json('items') ?? [];
         Log::info('search => ');
         Log::info($results);
