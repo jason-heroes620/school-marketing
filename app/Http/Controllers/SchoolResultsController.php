@@ -298,14 +298,22 @@ class SchoolResultsController extends Controller
 
         if (count($school_results) > 0) {
             Log::info('get from database');
-            $responseData['results'] =
-                SchoolResults::select(["school_result_id", "school_account_id", "place_id", "name", "geometry", 'rating', "school_result_status as status"])
+            $results = SchoolResults::select(["school_result_id", "school_account_id", "place_id", "name", "geometry", 'rating', "school_result_status as status", "run_crawl"])
                 ->where('school_account_id', $account_id['school_account_id'])
                 ->where('radius', "<=", $radius)
                 ->get();
+            $responseData['results'] = $results;
+            Log::info($results);
             // SchoolResults::where('school_account_id', $account_id['school_account_id'])
             // ->where('radius', "<=", $radius)
             // ->get();
+            foreach ($results as &$result) {
+                if ($result['run_crawl'] === 0) {
+                    Log::info('run crawl if 0');
+                    // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
+                    $this->geminiQuery($result['name'], $result['school_result_id']);
+                }
+            }
         } else {
             Log::info('get from google');
             $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
@@ -662,6 +670,7 @@ class SchoolResultsController extends Controller
 
     private function geminiQuery($name, $school_result_id)
     {
+        Log::info('run gemini query');
         $query = "Research about {$name}, including fees, opening hours, and educational program";
 
         $response = $this->geminiService->ask($query);
