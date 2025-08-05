@@ -4,6 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect, useState } from "react";
 import { SpaceIcon } from "lucide-react";
+import { renderHTML } from "@/utils/renderHtml";
 
 const SchoolFormDrawer = ({
     groups,
@@ -52,6 +53,23 @@ const SchoolFormDrawer = ({
         console.log(data);
     };
 
+    const formatTextWithNewlines = (text: string): React.ReactNode => {
+        return text.split("\n\n").map((paragraph, index, array) => (
+            <React.Fragment key={index}>
+                {paragraph}
+                {index < array.length - 1 && (
+                    <>
+                        <br />
+                        <br />
+                    </>
+                )}
+            </React.Fragment>
+        ));
+    };
+
+    const TextWithNewlines: React.FC<{ text: string }> = ({ text }) => {
+        return <div>{formatTextWithNewlines(text)}</div>;
+    };
     const handleTextChange = (
         settingGroup: string,
         setting: string,
@@ -242,10 +260,9 @@ const SchoolFormDrawer = ({
                         <span className="font-bold italic">
                             Data from Web Sites
                         </span>
-                        <Textarea
-                            readOnly
-                            value={trimFirstAndLastChar(formattedData)}
-                        />
+                        <div>
+                            <TextWithNewlines text={webData} />;
+                        </div>
                     </div>
                 )}
             </div>

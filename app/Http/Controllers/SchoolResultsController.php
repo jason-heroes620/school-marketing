@@ -19,6 +19,7 @@ use App\Models\TeacherStudentRatio;
 use App\Models\Themes;
 use App\Models\TypeOfSchool;
 use App\Services\GeminiService;
+use App\Services\GeminiService2;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -37,7 +38,7 @@ class SchoolResultsController extends Controller
 {
     protected $geminiService;
 
-    public function __construct(GeminiService $geminiService)
+    public function __construct(GeminiService2 $geminiService)
     {
         $this->geminiService = $geminiService;
     }
@@ -355,12 +356,14 @@ class SchoolResultsController extends Controller
                     Log::info('r');
                     Log::info($school);
                     $school_result_id = $school['school_result_id'];
-                    $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
+                    // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
+                    $this->geminiQuery($result['name'], $school_result_id);
                 } else {
                     $school_result_id = $getSchoolResultId['school_result_id'];
 
                     if ($getSchoolResultId['run_crawl'] === 0) {
-                        $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
+                        // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
+                        $this->geminiQuery($result['name'], $school_result_id);
                     }
                 }
                 SchoolResults::where('school_result_id', $school_result_id)
@@ -606,7 +609,7 @@ class SchoolResultsController extends Controller
             return;
         }
 
-        $data = $this->geminiService->extractSchoolDetails($name, $website);
+        // $data = $this->geminiService->extractSchoolDetails($name, $website);
 
         //$this->updateDatabase($data, $school_result_id);
         // ResultsFromWeb::updateOrcreate(
@@ -616,7 +619,7 @@ class SchoolResultsController extends Controller
         //     ]
         // );
 
-        Log::info($data);
+        // Log::info($data);
     }
 
     public function setComplete(Request $request)
@@ -638,5 +641,45 @@ class SchoolResultsController extends Controller
             Log::error('Error update complete. ' . $e);
             return response()->json(['error'], 400);
         }
+    }
+
+    public function query(GeminiService2 $gemini)
+    {
+        $name = "Little Caliphs Islamic Kindergarten & Playschool Bandar Sri Permaisuri";
+        $query = "Research about {$name}, including fees, opening hours, and educational program";
+
+        $response = $gemini->ask($query);
+
+        if (!$response) {
+            return response()->json(['error' => 'Gemini failed to return a valid response'], 500);
+        }
+
+        // Save to DB
+        Log::info($response);
+
+        return response()->json(['query' => $query, 'response' => $response]);
+    }
+
+    private function geminiQuery($name, $school_result_id)
+    {
+        $query = "Research about {$name}, including fees, opening hours, and educational program";
+
+        $response = $this->geminiService->ask($query);
+
+        if (!$response) {
+            return response()->json(['error' => 'Gemini failed to return a valid response'], 500);
+        }
+
+        // Save to DB
+        Log::info($response);
+
+        // return response()->json(['query' => $query, 'response' => $response]);
+
+        ResultsFromWeb::updateOrcreate(
+            ['school_result_id' => $school_result_id],
+            [
+                'results' => ($response),
+            ]
+        );
     }
 }

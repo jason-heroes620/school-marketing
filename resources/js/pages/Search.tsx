@@ -106,7 +106,7 @@ export default function Search({
             );
             if (res.data) {
                 const d = res.data;
-                console.log("d =>", d);
+                // console.log("d =>", d.web);
                 setData(d.existingData);
                 setWebData(d.web);
                 setOpenSheet(true);
