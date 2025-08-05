@@ -312,6 +312,12 @@ class SchoolResultsController extends Controller
                     Log::info('run crawl if 0');
                     // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
                     $this->geminiQuery($result['name'], $result['school_result_id']);
+
+                    SchoolResults::where('school_result_id', $result['school_result_id'])
+                        ->where('place_id', $result['place_id'])
+                        ->update([
+                            'run_crawl' => 1
+                        ]);
                 }
             }
         } else {
