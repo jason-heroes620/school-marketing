@@ -677,7 +677,7 @@ class SchoolResultsController extends Controller
     private function geminiQuery($name, $school_result_id)
     {
         Log::info('run gemini query');
-        $query = "Research about {$name}, including fees, opening hours, and educational program";
+        $query = "i am doing a research called  {$name} in malaysia, I will like to find out about their rates, their opening and closing times and other details";
 
         $response = $this->geminiService->ask($query);
 
