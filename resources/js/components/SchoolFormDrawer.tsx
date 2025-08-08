@@ -42,7 +42,7 @@ const SchoolFormDrawer = ({
         checked: boolean | string
     ) => {
         const selected = data[setting_group] ?? [];
-
+        console.log("selected ", selected);
         setData(
             setting_group,
             checked
@@ -50,7 +50,7 @@ const SchoolFormDrawer = ({
                 : selected.filter((f: any) => f !== setting)
         );
 
-        console.log(data);
+        console.log("changes => ", data);
     };
 
     const formatTextWithNewlines = (text: string): React.ReactNode => {
@@ -78,7 +78,7 @@ const SchoolFormDrawer = ({
         index: number
     ) => {
         const selected = data[settingGroup] ?? [];
-        console.log("selected ", selected);
+
         setData((prev: any) => {
             if (prev.length === 0) {
                 prev = Array(settingLength);
@@ -126,9 +126,12 @@ const SchoolFormDrawer = ({
                                                 className="w-[200px]"
                                                 type={g.setting_type}
                                                 value={
-                                                    data[g.setting_group_short][
-                                                        i
-                                                    ]
+                                                    data[g.setting_group_short]
+                                                        ? data[
+                                                              g
+                                                                  .setting_group_short
+                                                          ][i]
+                                                        : ""
                                                 }
                                                 onChange={(e) =>
                                                     handleTextChange(
@@ -170,17 +173,27 @@ const SchoolFormDrawer = ({
                                                                 data[
                                                                     g
                                                                         .setting_group_short
-                                                                ].includes(
-                                                                    "Other"
-                                                                )
-                                                                    ? false
+                                                                ]
+                                                                    ? data[
+                                                                          g
+                                                                              .setting_group_short
+                                                                      ].includes(
+                                                                          "Other"
+                                                                      )
+                                                                        ? false
+                                                                        : true
                                                                     : true
                                                             }
                                                             value={
                                                                 data[
                                                                     g
                                                                         .setting_group_short
-                                                                ][i]
+                                                                ]
+                                                                    ? data[
+                                                                          g
+                                                                              .setting_group_short
+                                                                      ][i]
+                                                                    : ""
                                                             }
                                                             onChange={(e) => {
                                                                 handleTextChange(

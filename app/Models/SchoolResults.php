@@ -23,6 +23,8 @@ class SchoolResults extends Model
         'radius',
         'geometry',
         'rating',
+        'run_crawl',
+        'is_main'
     ];
 
     protected $casts = [

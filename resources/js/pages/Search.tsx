@@ -73,7 +73,6 @@ export default function Search({
             });
 
             if (res.data.results) {
-                console.log("results =>", res.data.results);
                 setPlaces((prev) =>
                     reset ? res.data.results : [...prev, ...res.data.results]
                 );
@@ -106,7 +105,7 @@ export default function Search({
             );
             if (res.data) {
                 const d = res.data;
-                // console.log("d =>", d.web);
+
                 setData(d.existingData);
                 setWebData(d.web);
                 setOpenSheet(true);
@@ -139,7 +138,6 @@ export default function Search({
         console.log("complete " + school.place_id);
         await axios.patch("/setComplete/" + school.place_id).then((resp) => {
             if (resp.status === 200) {
-                console.log(resp.data);
                 toast.success("School Updated to Complete.");
             } else {
                 toast.error(

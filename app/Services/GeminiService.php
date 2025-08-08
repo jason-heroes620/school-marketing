@@ -30,13 +30,13 @@ class GeminiService
 
         // 3. Prompt
         $prompt = <<<EOT
-        i am doing a research called "{$schoolName}",, I will like to find out about their rates, their opening and closing times and other details
+        i am doing a research called "{$schoolName}" in Malaysia, I will like to find out about their rates, their opening and closing times and other details
 
-Do not include any explanation or commentary — output only valid JSON.
+        Analyze the following text from various websites about the fees or rates for "{$schoolName}". Summarize the monthly and annual fees, noting any discrepancies and mentioning which branches the fees are for. State clearly if the fees are not explicitly listed.\n\nText to analyze:\n" .
 
-Content:
-{$combinedContent}
-EOT;
+        Content:
+        {$combinedContent}
+        EOT;
 
         $response = Http::post("{$this->geminiEndpoint}?key={$this->geminiKey}", [
             'contents' => [
@@ -98,7 +98,7 @@ EOT;
             'cx' => $searchEngineId,
             // 'q' => "$schoolName site:.edu OR site:.org OR site:.my OR site:.com",
             'q' => "$schoolName",
-            'num' => 8,
+            'num' => 10,
         ])->json('items') ?? [];
         Log::info('search => ');
         Log::info($results);

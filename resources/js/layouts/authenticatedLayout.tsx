@@ -127,6 +127,13 @@ const AuthenticatedLayout = ({ children }: { children: React.ReactNode }) => {
                                                         My Likes
                                                     </Dropdown.Link> */}
                                                     <Dropdown.Link
+                                                        href={route(
+                                                            "profile.my_school"
+                                                        )}
+                                                    >
+                                                        My School
+                                                    </Dropdown.Link>
+                                                    <Dropdown.Link
                                                         href={route("logout")}
                                                         method="post"
                                                         as="button"
@@ -204,12 +211,12 @@ const AuthenticatedLayout = ({ children }: { children: React.ReactNode }) => {
                                             href={route("account.view")}
                                         >
                                             Account
-                                        </ResponsiveNavLink>
+                                        </ResponsiveNavLink> */}
                                         <ResponsiveNavLink
                                             href={route("profile.edit")}
                                         >
                                             Profile
-                                        </ResponsiveNavLink> */}
+                                        </ResponsiveNavLink>
                                         <ResponsiveNavLink
                                             method="post"
                                             href={route("logout")}

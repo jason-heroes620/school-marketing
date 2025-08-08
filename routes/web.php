@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/my-school', [ProfileController::class, 'mySchool'])->name('profile.my_school');
+    Route::post('/update-my-school', [ProfileController::class, 'updateMySchool'])->name('profile.update_my_school');
 
     // Search
     Route::get('/nearby', [SchoolResultsController::class, 'getNearbyList'])->name('results.getNearBy');
@@ -48,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/scrapeSchoolData', [SchoolResultsController::class, 'scrapeSchoolData']);
     Route::patch('/setComplete/{id}', [SchoolResultsController::class, 'setComplete']);
     // Route::patch('/getHere', [SchoolResultsController::class, 'getHere']);
+
+    Route::get('/query', [SchoolResultsController::class, 'query']);
 
     Route::get('/my-reports', [ReportController::class, 'index'])->name("report.index");
 });

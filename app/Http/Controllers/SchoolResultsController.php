@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Exceptions;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Js;
 use Symfony\Component\Uid\UuidV8;
+use Illuminate\Support\Str;
 
 use function PHPUnit\Framework\isArray;
 use function PHPUnit\Framework\isEmpty;
@@ -294,6 +295,7 @@ class SchoolResultsController extends Controller
         $responseData = [];
         $school_results = SchoolResults::where('school_account_id', $account_id['school_account_id'])
             ->where('radius', $radius)
+            ->where('is_main', 1)
             ->get();
 
         if (count($school_results) > 0) {
@@ -301,6 +303,7 @@ class SchoolResultsController extends Controller
             $results = SchoolResults::select(["school_result_id", "school_account_id", "place_id", "name", "geometry", 'rating', "school_result_status as status", "run_crawl"])
                 ->where('school_account_id', $account_id['school_account_id'])
                 ->where('radius', "<=", $radius)
+                ->where('is_main', 1)
                 ->get();
             $responseData['results'] = $results;
             Log::info($results);
@@ -394,34 +397,38 @@ class SchoolResultsController extends Controller
 
     public function getSchoolResultById(Request $request)
     {
-        $user = Auth::id();
-        $account_id = SchoolAccounts::where('user_id', $user)->first();
-        $school_result_id = SchoolResults::select("school_result_id")->where('school_account_id', $account_id['school_account_id'])
-            ->where('place_id', $request->id)
-            ->first();
-        $existingData = "";
-        $getExistingData = [];
-        if ($school_result_id) {
-            $getExistingData = Results::select("results")
-                ->where('school_result_id', $school_result_id['school_result_id'])
+        try {
+            $user = Auth::id();
+            $account_id = SchoolAccounts::where('user_id', $user)->first();
+            $school_result_id = SchoolResults::select("school_result_id")->where('school_account_id', $account_id['school_account_id'])
+                ->where('place_id', $request->id)
                 ->first();
+            $existingData = "";
+            $getExistingData = [];
+            if ($school_result_id) {
+                $getExistingData = Results::select("results")
+                    ->where('school_result_id', $school_result_id['school_result_id'])
+                    ->first();
+            }
+
+            $settings = SettingGroups::select("setting_group_short")
+                ->where('status', 'active')
+                ->orderBy('sort_order', 'asc')
+                ->get();
+
+            $dynamicFields = collect($settings)->pluck('setting_group_short')->mapWithKeys(fn($group) => [$group => []])
+                ->toArray();
+
+            $existingData = $getExistingData ? json_decode($getExistingData['results']) : $dynamicFields;
+            $web = ResultsFromWeb::select('results')->where('school_result_id', $school_result_id['school_result_id'])->first();
+            return response()->json([
+                'existingData' => $existingData,
+                'dynamicFields' => $dynamicFields,
+                'web' => $web ? ($web['results']) : ''
+            ]);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e]);
         }
-
-        $settings = SettingGroups::select("setting_group_short")
-            ->where('status', 'active')
-            ->orderBy('sort_order', 'asc')
-            ->get();
-
-        $dynamicFields = collect($settings)->pluck('setting_group_short')->mapWithKeys(fn($group) => [$group => []])
-            ->toArray();
-
-        $existingData = $getExistingData ? json_decode($getExistingData['results']) : $dynamicFields;
-        $web = ResultsFromWeb::select('results')->where('school_result_id', $school_result_id['school_result_id'])->first();
-        return response()->json([
-            'existingData' => $existingData,
-            'dynamicFields' => $dynamicFields,
-            'web' => $web ? ($web['results']) : ''
-        ]);
     }
 
     public function update(Request $request)
@@ -463,7 +470,7 @@ class SchoolResultsController extends Controller
         }
     }
 
-    private function updateDatabase($data, $school_result_id)
+    public function updateDatabase($data, $school_result_id)
     {
         foreach ($data as $k => $arr) {
             switch ($k) {
@@ -696,5 +703,73 @@ class SchoolResultsController extends Controller
                 'results' => ($response),
             ]
         );
+
+        $parsed = $this->extractStructuredInfo($response);
+        $record = Results::updateOrCreate(
+            ['school_result_id' => $school_result_id],
+            ['results' => json_encode($parsed)]
+        );
+    }
+
+    private function extract_max_rm_from_match($content, $keywords)
+    {
+        foreach ($keywords as $keyword) {
+            if (stripos($content, $keyword) !== false) {
+                // Find the closest sentence containing the keyword
+                $sentences = preg_split('/(?<=[.])\s+/', $content);
+                foreach ($sentences as $sentence) {
+                    if (stripos($sentence, $keyword) !== false) {
+                        if (preg_match_all('/RM\s?([\d,]+)/i', $sentence, $matches)) {
+                            $values = array_map(fn($v) => (int) str_replace(',', '', $v), $matches[1]);
+                            return max($values);
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private function extractFees($fees_map, $blocks)
+    {
+        $results = [];
+
+        foreach ($fees_map as $keywords) {
+            $results[] = $this->extract_max_rm_from_match($blocks, $keywords);
+        }
+        return $results;
+    }
+
+    private function extractStructuredInfo(string $content): array
+    {
+        $attributes = config('school_attributes');
+        $result = [];
+
+        // $blocks = preg_split('/\n\s*\d+\.\s/', $content, -1, PREG_SPLIT_NO_EMPTY);
+        // $pattern = '/(Tuition|Full day|Registration|Deposits?|Materials|Uniforms|Books?|Discounts?).*?RM ?(\d{1,3}(?:,\d{3})*)/i';
+        // $parsed_fees = [];
+        Log::info($attributes['fees']);
+        foreach ($attributes as $group => $options) {
+            $result[$group] = [];
+
+            if ($group === 'fees') {
+                $result[$group] = $this->extractFees($attributes['fees'], $content);
+                continue;
+            }
+
+            $result[$group] = [];
+
+            if (empty($options)) {
+                continue;
+            }
+
+            foreach ($options as $option) {
+                if (Str::contains(Str::lower($content), Str::lower($option))) {
+                    $result[$group][] = $option;
+                }
+            }
+        }
+
+        return $result;
     }
 }

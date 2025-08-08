@@ -1,9 +1,10 @@
 import InputError from "@/components/InputError";
 import InputLabel from "@/components/InputLabel";
 import PrimaryButton from "@/components/PrimaryButton";
-import TextInput from "@/components/TextInput";
+import { Input } from "@/components/ui/input";
 import { Transition } from "@headlessui/react";
 import { Link, useForm, usePage } from "@inertiajs/react";
+import { toast } from "sonner";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -21,7 +22,11 @@ export default function UpdateProfileInformation({
     const submit = (e) => {
         e.preventDefault();
 
-        patch(route("profile.update"));
+        patch(route("profile.update"), {
+            onSuccess: () => {
+                toast.success("Profile information updated.");
+            },
+        });
     };
 
     return (
@@ -38,31 +43,29 @@ export default function UpdateProfileInformation({
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <label htmlFor="name">Name</label>
 
-                    <TextInput
+                    <Input
                         id="name"
                         className="mt-1 block w-full"
                         value={data.name}
                         onChange={(e) => setData("name", e.target.value)}
                         required
-                        isFocused
-                        autoComplete="name"
                     />
 
                     <InputError className="mt-2" message={errors.name} />
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="email" value="Email" />
+                    <label htmlFor="email">Email</label>
 
-                    <TextInput
+                    <Input
                         id="email"
                         type="email"
                         className="mt-1 block w-full"
                         value={data.email}
                         onChange={(e) => setData("email", e.target.value)}
-                        required
+                        readOnly
                         autoComplete="username"
                     />
 
