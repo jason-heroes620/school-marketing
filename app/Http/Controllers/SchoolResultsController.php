@@ -15,11 +15,13 @@ use App\Models\SchoolAccounts;
 use App\Models\SchoolResults;
 use App\Models\SettingGroups;
 use App\Models\Settings;
+use App\Models\Tadikas;
 use App\Models\TeacherStudentRatio;
 use App\Models\Themes;
 use App\Models\TypeOfSchool;
 use App\Services\GeminiService;
 use App\Services\GeminiService2;
+use App\Services\IdentifyChain;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -684,7 +686,7 @@ class SchoolResultsController extends Controller
     private function geminiQuery($name, $school_result_id)
     {
         Log::info('run gemini query');
-        $query = "Research about {$name} in Klang valley, Malaysia, including fees and rates, opening hours, and educational program and other details";
+        $query = "Research about {$name} in Sibu, Sarawak, including fees and rates, opening hours, and educational program and other details";
 
         $response = $this->geminiService->ask($query);
 
@@ -771,5 +773,117 @@ class SchoolResultsController extends Controller
         }
 
         return $result;
+    }
+
+    public function chain()
+    {
+        $knownChains = [
+            'Smart Reader Kids' => ['smart reader kids', 'smart reader'],
+            'Q-dees' => ['q-dees', 'qdees'],
+            'Little Caliphs' => ['little caliphs', 'lc ', 'LC '], // 'lc ' with a space to avoid false positives
+            'R.E.A.L Kids' => ['r.e.a.l kids', 'real kids'],
+            'Brainy Bunch' => ['brainy bunch'],
+            'Big Apple EduWorld' => ['big apple'],
+            'Kinderland' => ['kinderland'],
+            'Eduwis' => ['eduwis'],
+            'Beaconhouse' => ['beaconhouse'],
+            'Kumon' => ['kumon'],
+            'Eye Level' => ['eye level'],
+            'UCMAS' => ['ucmas'],
+            '3Q MRC' => ['3q mrc', 'mrc jawi'],
+            'Alfa & Friends' => ['alfa & friends', 'alfa and friends'],
+            'The Olive Trees' => ['the olive trees'],
+            'Prestij Mulia' => ['prestij mulia'],
+            'Anak Cerdik Soleh' => ['anak cerdik soleh'], // Identified as a local chain
+            'Anak Ceria Soleh' => ['anak ceria soleh'],   // Identified as a local chain
+            'Naluri Bestari' => ['naluri bestari'],     // Identified as a local chain
+            'Didik Literasi' => ['didik literasi'],     // Identified as a local chain
+            'Tunas Fitrah' => ['tunas fitrah'],         // Identified as a local chain
+            'Fonik Millennium' => ['fonik millennium'], // Identified as a local chain
+            'Bahtera Ilmu' => ['bahtera ilmu'],         // Identified as a local chain
+            'Soleh Squad Islamic Preschool' => ['soleh squad islamic preschool', 'ssip'], // Identified as a local chain
+            'Tadika Montessori Sinar Gemilang' => ['montessori sinar gemilang'], // Identified as a local chain
+            'Tadika Masmurni' => ['tadikamas murni', 'masmurni'], // Identified as a local chain
+            'Nadi Intelek' => ['nadi intelek'],         // Identified as a local chain
+            'UIAM (University-affiliated)' => ['universiti islam antarabangsa malaysia', 'uiam'],
+            'Tadika KEMAS / JPN (Government)' => ['tadika rakyat', 'kemas', 'jpn'], // Government-run
+            'RoboThink' => ['robothink'],
+            'Chumbaka' => ['chumbaka'],
+            'Kidocode' => ['kidocode'],
+            'World of Robotics' => ['world of robotics'],
+            'Bricks 4 Kidz' => ['bricks 4 kidz'],
+            'The Little Gym' => ['the little gym'],
+            // Add more chains and their keywords as you identify them
+        ];
+
+
+
+
+        // $tadikas = Tadikas::where('updated', 0)->limit(100)->get();
+        // $apiKey = config('custom.gemini_api_key');
+        // $identifier = new IdentifyChain($apiKey);
+
+        // foreach ($tadikas as $t) {
+        //     echo "Identifying chain for '{$t['school_name']}'...\n";
+        //     $result = $identifier->identifyChain($t['school_name']);
+
+        //     echo "--- Result ---\n";
+        //     if (isset($result['error'])) {
+        //         echo $result['error'] . "\n";
+        //     } else {
+        //         echo "School: {$t['school_name']}\n";
+        //         echo "Is Chain: " . ($result['is_chain'] ? 'Yes' : 'No') . "\n";
+        //         echo "Chain Name: " . ($result['chain_name'] ?: 'N/A') . "\n";
+        //     }
+        //     echo "-------------------\n\n";
+        // }
+        // foreach ($tadikas as $t) {
+        //     echo "Identifying chain for '{$t['school_name']}'...\n";
+        //     $result = $identifier->identifyChain($t['school_name']);
+
+        //     echo "--- Result ---\n";
+        //     if (isset($result['error'])) {
+        //         echo $result['error'] . "\n";
+        //     } else {
+        //         echo "School: {$t['school_name']}\n";
+        //         echo "Is Chain: " . ($result['is_chain'] ? 'Yes' : 'No') . "\n";
+        //         echo "Chain Name: " . ($result['chain_name'] ?: 'N/A') . "\n";
+        //         Log::info($t['school_name'] . ' == ' . $result['chain_name']);
+        //         if ($result['is_chain']) {
+        //             Tadikas::where('id', $t['id'])
+        //                 ->update([
+        //                     'chain_name' => $result['chain_name'],
+        //                     'updated' => 1
+        //                 ]);
+        //         } else {
+        //             Tadikas::where('id', $t['id'])
+        //                 ->update([
+        //                     'updated' => 1
+        //                 ]);
+        //         }
+        //     }
+        //     echo "-------------------\n\n";
+        // }
+
+        // foreach ($tadikas as $t) {
+        //     $schoolId = $t['id'];
+        //     $schoolName = strtolower($t['school_name']); // Convert to lowercase for case-insensitive comparison
+        //     $foundChain = '';
+
+        //     // Iterate through known chains to find a match
+        //     foreach ($knownChains as $chainName => $keywords) {
+        //         foreach ($keywords as $keyword) {
+        //             if (strpos($schoolName, $keyword) !== false) {
+        //                 $foundChain = $chainName;
+        //                 break 2; // Exit both inner and outer loops once a match is found
+        //             }
+        //         }
+        //     }
+        //     // Log::info($t['school_name'] . ' == ' . $foundChain);
+        //     // Tadikas::where('id', $schoolId)
+        //     //     ->update([
+        //     //         'chain_name' => $foundChain
+        //     //     ]);
+        // }
     }
 }
