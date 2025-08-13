@@ -21,10 +21,11 @@ class DashboardController extends Controller
             $user = Auth::id();
             $account_id = SchoolAccounts::where('user_id', $user)->first();
 
-            $count = SchoolResults::select([DB::raw('count(*) as count'), "school_result_status"])
+            $count = SchoolResults::select([DB::raw('count(*) as count'), "school_result_status", "radius"])
                 ->where('school_account_id', $account_id['school_account_id'])
                 ->where('is_main', 1)
                 ->groupBy('school_result_status')
+                ->groupBy('radius')
                 ->get();
         } catch (Exception $e) {
             Log::error('Error getting dashboard count' . $e);
