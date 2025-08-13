@@ -686,7 +686,7 @@ class SchoolResultsController extends Controller
     private function geminiQuery($name, $school_result_id)
     {
         Log::info('run gemini query');
-        $query = "Research about {$name} in Sibu, Sarawak, including fees and rates, opening hours, and educational program and other details";
+        $query = "Research about {$name} in Klang Valley, Malaysia, including fees and rates, opening hours, and educational program and other details";
 
         $response = $this->geminiService->ask($query);
 
@@ -819,7 +819,7 @@ class SchoolResultsController extends Controller
 
 
 
-        // $tadikas = Tadikas::where('updated', 0)->limit(100)->get();
+        $tadikas = Tadikas::where('updated', 0)->limit(100)->get();
         // $apiKey = config('custom.gemini_api_key');
         // $identifier = new IdentifyChain($apiKey);
 
@@ -837,6 +837,8 @@ class SchoolResultsController extends Controller
         //     }
         //     echo "-------------------\n\n";
         // }
+
+
         // foreach ($tadikas as $t) {
         //     echo "Identifying chain for '{$t['school_name']}'...\n";
         //     $result = $identifier->identifyChain($t['school_name']);
@@ -865,25 +867,26 @@ class SchoolResultsController extends Controller
         //     echo "-------------------\n\n";
         // }
 
-        // foreach ($tadikas as $t) {
-        //     $schoolId = $t['id'];
-        //     $schoolName = strtolower($t['school_name']); // Convert to lowercase for case-insensitive comparison
-        //     $foundChain = '';
+        foreach ($tadikas as $t) {
+            $schoolId = $t['id'];
+            $schoolName = strtolower($t['school_name']); // Convert to lowercase for case-insensitive comparison
+            $foundChain = '';
 
-        //     // Iterate through known chains to find a match
-        //     foreach ($knownChains as $chainName => $keywords) {
-        //         foreach ($keywords as $keyword) {
-        //             if (strpos($schoolName, $keyword) !== false) {
-        //                 $foundChain = $chainName;
-        //                 break 2; // Exit both inner and outer loops once a match is found
-        //             }
-        //         }
-        //     }
-        //     // Log::info($t['school_name'] . ' == ' . $foundChain);
-        //     // Tadikas::where('id', $schoolId)
-        //     //     ->update([
-        //     //         'chain_name' => $foundChain
-        //     //     ]);
-        // }
+            // Iterate through known chains to find a match
+            foreach ($knownChains as $chainName => $keywords) {
+                foreach ($keywords as $keyword) {
+                    if (strpos($schoolName, $keyword) !== false) {
+                        $foundChain = $chainName;
+                        break 2; // Exit both inner and outer loops once a match is found
+                    }
+                }
+            }
+            Log::info($t['school_name'] . ' == ' . $foundChain);
+            Tadikas::where('id', $schoolId)
+                ->update([
+                    'chain_name' => $foundChain,
+                    'updated' => 1
+                ]);
+        }
     }
 }
