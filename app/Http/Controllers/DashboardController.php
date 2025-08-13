@@ -23,6 +23,7 @@ class DashboardController extends Controller
 
             $count = SchoolResults::select([DB::raw('count(*) as count'), "school_result_status"])
                 ->where('school_account_id', $account_id['school_account_id'])
+                ->where('is_main', 1)
                 ->groupBy('school_result_status')
                 ->get();
         } catch (Exception $e) {
