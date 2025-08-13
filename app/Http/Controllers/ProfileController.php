@@ -121,7 +121,7 @@ class ProfileController extends Controller
 
         $id = $school_result_id['school_result_id'];
 
-        return Inertia::render('Profile/MySchool', compact('groups', 'existingData', 'dynamicFields', 'web', 'id'));
+        return Inertia::render('Profile/MySchool', compact('groups', 'existingData', 'dynamicFields', 'web', 'id', 'account_id'));
     }
 
     public function updateMySchool(Request $request)
