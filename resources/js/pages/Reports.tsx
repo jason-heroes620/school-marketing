@@ -98,19 +98,19 @@ const Reports = () => {
         return (
             <ul>
                 {payload.map((entry, index) => (
-                    <li key={`item-${index}`}>
-                        <span className={`bg-[${COLORS[index]}] px-2 py gap-2`}>
+                    <li
+                        key={`item-${index}`}
+                        className={`flex flex-row bg-[${COLORS[index]}]`}
+                    >
+                        <div className={`bg-[${COLORS[index]}] px-2 py gap-2`}>
                             {entry.payload.name[0]}
-                        </span>
+                        </div>
                         <span className="pl-2">{entry.payload.name}</span>
                     </li>
                 ))}
             </ul>
         );
     };
-
-    console.log(fees);
-    console.log(types);
 
     const [hoveringDataKey, setHoveringDataKey] = React.useState(null);
 
@@ -125,7 +125,7 @@ const Reports = () => {
         uvOpacity = 0.5;
     }
 
-    const handleMouseEnter = (payload /*: LegendPayload */) => {
+    const handleMouseEnter = (payload: any) => {
         setHoveringDataKey(payload.dataKey);
     };
 
@@ -160,7 +160,6 @@ const Reports = () => {
     }, {});
 
     const finalResult = Object.values(result);
-    console.log(finalResult);
 
     return (
         <AuthenticatedLayout>
@@ -172,30 +171,37 @@ const Reports = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="border px-2 py-4">
                         <div>
-                            <span>Type Of Schools</span>
+                            <span>Type Of School</span>
                         </div>
                         <div>
-                            <PieChart width={400} height={400}>
-                                <Pie
-                                    data={types}
-                                    nameKey="type_of_school"
-                                    cx="50%"
-                                    cy="50%"
-                                    outerRadius={100}
-                                    fill="#4f46e5"
-                                    labelLine={false}
-                                    label={renderCustomizedLabel}
-                                >
-                                    {types.map((entry, index) => (
-                                        <Cell
-                                            key={`cell-${index}`}
-                                            fill={COLORS[index % COLORS.length]}
-                                        />
-                                    ))}
-                                </Pie>
+                            <ResponsiveContainer width={"100%"} height={400}>
+                                <PieChart>
+                                    <Pie
+                                        data={types}
+                                        dataKey="value"
+                                        nameKey="name"
+                                        cx="50%"
+                                        cy="50%"
+                                        outerRadius={100}
+                                        fill="#4f46e5"
+                                        labelLine={false}
+                                        label={renderCustomizedLabel}
+                                    >
+                                        {types.map((entry, index) => (
+                                            <Cell
+                                                key={`cell-${index}`}
+                                                fill={
+                                                    COLORS[
+                                                        index % COLORS.length
+                                                    ]
+                                                }
+                                            />
+                                        ))}
+                                    </Pie>
 
-                                <Legend content={renderLegend} />
-                            </PieChart>
+                                    <Legend className="flex flex-col" />
+                                </PieChart>
+                            </ResponsiveContainer>
                         </div>
                     </div>
                     <div className="border px-2 py-4 col-span-2">
