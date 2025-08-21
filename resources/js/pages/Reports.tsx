@@ -15,11 +15,16 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
+    BarChart,
+    Bar,
+    Rectangle,
 } from "recharts";
 
 type PageProps = {
     auth: any;
     types: []; // Adjust the type as needed
+    fees: [];
+    students: [];
 };
 
 type TooltipPayload = ReadonlyArray<any>;
@@ -58,8 +63,7 @@ type PieLabelProps = PieSectorData &
 
 const Reports = () => {
     // Replace 'PageProps' with your actual props type if different
-    const { auth, types, fees } = usePage<PageProps>().props;
-
+    const { auth, types, fees, students, data } = usePage<PageProps>().props;
     const COLORS = ["#6050DC", "#D52DB7", "#FF2E7E", "#FF6B45", "FFAB05"];
 
     const RADIAN = Math.PI / 180;
@@ -161,6 +165,10 @@ const Reports = () => {
 
     const finalResult = Object.values(result);
 
+    const data1000 = students.filter((item) => item.radius === 1000);
+    const data2000 = students.filter((item) => item.radius === 2000);
+    const data5000 = students.filter((item) => item.radius === 5000);
+
     return (
         <AuthenticatedLayout>
             <Head title="Reports" />
@@ -168,7 +176,7 @@ const Reports = () => {
                 <div className="py-4">
                     <span className="text-lg font-bold">Reports</span>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="border px-2 py-4">
                         <div>
                             <span>Type Of School</span>
@@ -204,7 +212,7 @@ const Reports = () => {
                             </ResponsiveContainer>
                         </div>
                     </div>
-                    <div className="border px-2 py-4 col-span-2">
+                    <div className="border px-2 py-4 col-span-3">
                         <div className="py-2 px-2">
                             <span>Average Fees</span>
                         </div>
@@ -252,6 +260,130 @@ const Reports = () => {
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
+                    <div className="border px-2 py-4 col-span-2">
+                        <div className="py-2 px-2">
+                            <span>No. Of Students</span>
+
+                            <div className="py-4">
+                                <h3>1 KM Radius</h3>
+                                <ResponsiveContainer width="100%" height={400}>
+                                    <BarChart
+                                        width={400}
+                                        height={450}
+                                        data={data1000}
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis hide dataKey="school" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar
+                                            dataKey="value"
+                                            fill="#8884d8"
+                                            name="Students"
+                                            radius={[0, 0, 0, 0]}
+                                            maxBarSize={50}
+                                        />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="border px-2 py-4 col-span-2">
+                        <div className="py-2 px-2">
+                            <span>No. Of Students</span>
+
+                            <div className="py-4">
+                                <h3>2 KM Radius</h3>
+                                <ResponsiveContainer width="100%" height={400}>
+                                    <BarChart
+                                        width={400}
+                                        height={150}
+                                        data={data2000}
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis hide dataKey="school" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar
+                                            dataKey="value"
+                                            fill="#8884d8"
+                                            name="Students"
+                                            radius={[0, 0, 0, 0]}
+                                            maxBarSize={50}
+                                        />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="border px-2 py-4 col-span-2">
+                        <div className="py-2 px-2">
+                            <span>No. Of Students</span>
+
+                            <div className="py-4">
+                                <h3>5 KM Radius</h3>
+                                <ResponsiveContainer width="100%" height={400}>
+                                    <BarChart
+                                        width={400}
+                                        height={150}
+                                        data={data5000}
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis hide dataKey="school" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Bar
+                                            dataKey="value"
+                                            fill="#8884d8"
+                                            name="Students"
+                                            radius={[0, 0, 0, 0]}
+                                            maxBarSize={50}
+                                        />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="border px-2 py-4 col-span-2">
+                        <div className="py-2 px-2">
+                            <span>No. Of Students</span>
+                        </div>
+                        <h3>Schools within 2000 Radius</h3>
+                        <ResponsiveContainer>
+                            <BarChart width={400} height={450} data={data2000}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="school" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar
+                                    dataKey="value"
+                                    fill="#82ca9d"
+                                    name="Students"
+                                />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                    <div>
+                        <h3>Schools within 5000 Radius</h3>
+                        <ResponsiveContainer>
+                            <BarChart width={400} height={450} data={data5000}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="school" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar
+                                    dataKey="value"
+                                    fill="#82ca9d"
+                                    name="Students"
+                                />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div> */}
                 </div>
             </div>
         </AuthenticatedLayout>

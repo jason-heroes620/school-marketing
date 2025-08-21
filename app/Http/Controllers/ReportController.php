@@ -40,13 +40,50 @@ class ReportController extends Controller
             ->where('school_account_id', $account_id['school_account_id'])
             ->groupBy('radius', 'setting')
             ->get()->toArray();
+
+
+        $data1 = SchoolResults::select('name as school', 'no_of_student as value', 'radius')
+            ->leftJoin('no_of_students', 'school_results.school_result_id', 'no_of_students.school_result_id')
+            ->where('school_result_status', 'C')
+            ->where('radius', 1000)
+            ->latest('no_of_students.updated_at')
+            ->orderBy('no_of_student', 'desc')
+            ->limit(5)
+            ->get()->toArray();
+        $data2 = SchoolResults::select('name as school', 'no_of_student as value', 'radius')
+            ->leftJoin('no_of_students', 'school_results.school_result_id', 'no_of_students.school_result_id')
+            ->where('school_result_status', 'C')
+            ->where('radius', 2000)
+            ->latest('no_of_students.updated_at')
+            ->orderBy('no_of_student', 'desc')
+            ->limit(5)
+            ->get()->toArray();
+        $data3 = SchoolResults::select('name as school', 'no_of_student as value', 'radius')
+            ->leftJoin('no_of_students', 'school_results.school_result_id', 'no_of_students.school_result_id')
+            ->where('school_result_status', 'C')
+            ->where('radius', 5000)
+            ->latest('no_of_students.updated_at')
+            ->orderBy('no_of_student', 'desc')
+            ->limit(5)
+            ->get()->toArray();
+        // $students = [
+        //     '1000' => $data1,
+        //     '2000' => $data2,
+        //     '5000' => $data3
+        // ];
+        $students = array_merge($data1, $data2, $data3);
+
+
+        // dd($students);
         $types = $this->filterAndCleanArrayName($types);
         $fees = $this->filterAndCleanArrayValue($fees);
 
 
         return Inertia::render("Reports", [
             'types' => $types,
-            'fees' => $fees
+            'fees' => $fees,
+            'students' => $students,
+
         ]);
     }
 
