@@ -34,9 +34,6 @@ use Illuminate\Support\Js;
 use Symfony\Component\Uid\UuidV8;
 use Illuminate\Support\Str;
 
-use function PHPUnit\Framework\isArray;
-use function PHPUnit\Framework\isEmpty;
-
 class SchoolResultsController extends Controller
 {
     protected $geminiService;
@@ -302,21 +299,19 @@ class SchoolResultsController extends Controller
 
         if (count($school_results) > 0) {
             Log::info('get from database');
-            $results = SchoolResults::select(["school_result_id", "school_account_id", "place_id", "name", "geometry", 'rating', "school_result_status as status", "run_crawl"])
+            $results = SchoolResults::select(["school_result_id", "school_account_id", "place_id", "name", "geometry", 'vicinity', 'rating', "school_result_status as status", "run_crawl"])
                 ->where('school_account_id', $account_id['school_account_id'])
                 ->where('radius', "<=", $radius)
                 ->where('is_main', 1)
                 ->get();
             $responseData['results'] = $results;
             Log::info($results);
-            // SchoolResults::where('school_account_id', $account_id['school_account_id'])
-            // ->where('radius', "<=", $radius)
-            // ->get();
+
             foreach ($results as &$result) {
                 if ($result['run_crawl'] === 0) {
                     Log::info('run crawl if 0');
                     // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
-                    $this->geminiQuery($result['name'], $result['school_result_id']);
+                    $this->geminiQuery($result['name'], $result['school_result_id'], $result['vicinity']);
 
                     SchoolResults::where('school_result_id', $result['school_result_id'])
                         ->where('place_id', $result['place_id'])
@@ -370,19 +365,20 @@ class SchoolResultsController extends Controller
                         'rating' => $result['rating'] ?? null,
                         'school_account_id' => $account_id['school_account_id'],
                         'radius' => $radius,
-                        'geometry' => $result['geometry']
+                        'geometry' => $result['geometry'],
+                        'vicinity' => $result['vicinity'],
                     ]);
                     Log::info('r');
                     Log::info($school);
                     $school_result_id = $school['school_result_id'];
                     // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
-                    $this->geminiQuery($result['name'], $school_result_id);
+                    $this->geminiQuery($result['name'], $school_result_id, $result['vicinity']);
                 } else {
                     $school_result_id = $getSchoolResultId['school_result_id'];
 
                     if ($getSchoolResultId['run_crawl'] === 0) {
                         // $this->scrapeSchoolData($result['name'], $result['place_id'], $school_result_id);
-                        $this->geminiQuery($result['name'], $school_result_id);
+                        $this->geminiQuery($result['name'], $school_result_id, $result['vicinity']);
                     }
                 }
                 SchoolResults::where('school_result_id', $school_result_id)
@@ -683,10 +679,12 @@ class SchoolResultsController extends Controller
         return response()->json(['query' => $query, 'response' => $response]);
     }
 
-    private function geminiQuery($name, $school_result_id)
+    private function geminiQuery($name, $school_result_id, $address = null)
     {
         Log::info('run gemini query');
-        $query = "Research about {$name} in Klang Valley, Malaysia, including fees and rates, opening hours, and educational program and other details";
+        if (is_null($address))
+            $address = 'Klang Valley, Malaysia';
+        $query = "Research about {$name} located at {$address}, including fees and rates, opening hours, and educational program and other details";
 
         $response = $this->geminiService->ask($query);
 

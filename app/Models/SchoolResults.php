@@ -22,6 +22,7 @@ class SchoolResults extends Model
         'school_result_status',
         'radius',
         'geometry',
+        'vicinity',
         'rating',
         'run_crawl',
         'is_main'
